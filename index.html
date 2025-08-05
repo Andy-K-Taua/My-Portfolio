@@ -1,0 +1,295 @@
+<!-- // Personal-Portfolio/index.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navbar" class="nav">
+        <ul class="nav-list">
+            <li>
+                <a href="#about-me-nav" class="shadows-into-light-regular">About Me</a>
+            </li>
+            <li>
+                <a id="projects-nav-link" href="#projects-nav" class="shadows-into-light-regular">My Projects</a>
+            </li>
+            <li>
+                <a href="#contact-nav" class="shadows-into-light-regular">Contact Me</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="about-me-nav" class="about-me">
+        <div id="container-box" class="container-box"></div>
+        <h1 id="hey-im-anty" class="animate-from-right" class="shadows-into-light-regular">Hey I'm Andy K. Taua</h1>
+        <p id="animate-from-left-text" class="shadows-into-light-regular">An Aspiring Tech Dev & Web Enthusiast..
+        </p>
+    </section>
+    <section id="projects-nav" class="projects-section">
+        <h2 class="projects-section-header">My Projects</h2>
+
+        <div class="projects-grid">
+
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/Survey Form.png" alt="Survey form">
+                        <div class="card-text">
+                            <h3>Survey Form</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://andy-k-taua.github.io/Survey-Form/" target="_blank">
+                            <h2 style="margin-top: 4rem;margin-bottom: 1rem;">HTML</h2>
+                            <p>Basic HTML form</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/City Skyline.png" alt="Sky City Skyline">
+                        <div class="card-text">
+                            <h3>City Skyline</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://andy-k-taua.github.io/City-Skyline/" target="_blank">
+                            <h2 style="margin-top: 4rem;margin-bottom: 1rem;">CSS</h2>
+                            <p>Configuring CSS Variables for reuse</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/Calculator.png" alt="Calculator">
+                        <div class="card-text">
+                            <h3>Calculator</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://andy-k-taua.github.io/Calculator/" target="_blank">
+                            <h2 style="margin-top: 1rem; font-size: 35px;">Java Script</h2>
+                            <p>Fully functional calculator application</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/Chat Application.png" alt="Chat Application">
+                        <div class="card-text">
+                            <h3>Chat App</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://chat-app-arag.onrender.com" target="_blank">
+                            <h2 style="margin-top: 1rem; font-size: 35px;">MERN</h2>
+                            <p>Real-time messaging platform enabling users to exchange text-based
+                                conversations.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/Photo Editting Application.png" alt="Photo Editing Application">
+                        <div class="card-text">
+                            <h3>Photo Editor</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://photo-editor-l4i7.onrender.com" target="_blank">
+                        <h2 style="margin-top: 1rem; font-size: 35px;">MERN PWA</h2>
+                        <p>Photo editing application that lets users edit and enhance their
+                            digital photos</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/Mario Bros.png" alt="Platform Game">
+                        <div class="card-text">
+                            <h3>Platform Game</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://gamer-trello.onrender.com" target="_blank">
+                        <h2 style="margin-top: 1rem; font-size: 35px;">MERN</h2>
+                        <p>Login, Subscription based, SegaMD Emulator</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/Authentication App.png" alt="To Update">
+                        <div class="card-text">
+                            <h3>Authentication</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://authentication-app-pisd.onrender.com" target="_blank">
+                        <h2 style="margin-top: 1rem; font-size: 35px; text-align: center;">MERN</h2>
+                        <p>This Authenticaiton App Sends an actual text message to your phone. (2FA, JWT)</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/Geolocation Image.png" alt="To Update">
+                        <div class="card-text">
+                            <h3>Geolocation</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://geolocation-project.onrender.com" target="_blank">
+                        <h2 style="margin-top: 1rem; font-size: 35px;">MERN</h2>
+                        <p>Geolocaton App, fastest route between two points</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="images/Expense Tracker.png" alt="To Update">
+                        <div class="card-text">
+                            <h3>Expense Tracker</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="https://github.com/Andy-K-Taua/expense_tracker" target="_blank">
+                        <h2 style="margin-top: 1rem; font-size: 35px;">Python</h2>
+                        <p>This tracker allows you to view, store, delete and update expenses</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="" alt="In Progress">
+                        <div class="card-text">
+                            <h3>RasberryPi</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="" target="_blank">
+                        <h2 style="margin-top: 1rem; font-size: 35px;">C++</h2>
+                        <p>bluetooth device using C++ / Meta integration</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="" alt="In Progress">
+                        <div class="card-text">
+                            <h3>Stock List</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="" target="_blank">
+                        <h2 style="margin-top: 1rem; font-size: 35px;">Python</h2>
+                        <p>Programme that allows you to update, delete and veiw stock</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <div class="front">
+                        <img src="" alt="In Progress">
+                        <div class="card-text">
+                            <h3>Clothes App</h3>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <a href="" target="_blank">
+                        <h2 style="margin-top: 1rem; font-size: 35px;">Native/AI</h2>
+                        <p>Take a picture of existing clothes and add details</p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="certifications-header">Certifications</h2>
+<div class="certifications-container">
+  <div class="certification-card">
+    <img src="images/Legacy JavaScript, Algorithms and Data Structures Cert.png" alt="Certificate 1">
+    <div class="certification-text">
+      <h3>Certificate 1</h3>
+      <p>Legacy JavaScript, Algorithms and Data Structures FreeCodeCamp</p>
+    </div>
+  </div>
+  <div class="certification-card">
+    <img src="images/Responsive Web Design.png" alt="Certificate 2">
+    <div class="certification-text">
+      <h3>Certificate 2</h3>
+      <p>Responsive Web Certification FreeCodeCamp</p>
+    </div>
+  </div>
+  <div class="certification-card">
+    <img src="images/Certificate of Completion.png" alt="Certificate 3">
+    <div class="certification-text">
+      <h3>Certificate 3</h3>
+      <p>Certificate of Completion General Assembly</p>
+    </div>
+  </div>
+</div>
+
+    </section>
+
+    <section id="contact-nav" class="contact-section">
+        <div class="contact-section-header">
+        </div>
+        <div class="contact-links">
+            <a id="profile-link" href="https://github.com/Andy-K-Taua" target="_blank" class="btn contact-details"><i class="fab fa-github"></i>
+                GitHub</a>
+            <a href="mailto:andykalasinitaua@gmail.com" class="btn contact-details" target="_blank"><i class="fas fa-at"></i>Email</a>
+            <a href="" class="btn contact-details"><i class="fas fa-mobile-alt"></i> Mobile</a>
+        </div>
+        <div class="space-bar">
+            <a class="btn btn-show-up" target="_blank" onclick="scrollToTop()">Back to the Top <i
+                    class="fas fa-chevron-up"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            &copy;
+            <a target="_blank">Anty Kalalsini-Taua
+            </a>
+        </p>
+    </footer>
+</body>
+
+</html>
