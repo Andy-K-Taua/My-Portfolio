@@ -1,68 +1,79 @@
-// Personal-Portfolio/script.js
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Smooth Scroll handler to snap perfectly to section slides
+    const scrollToSlide = (linkElement, sectionSelector) => {
+        if (linkElement) {
+            linkElement.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetSection = document.querySelector(sectionSelector);
+                
+                if (targetSection) {
+                    const navHeight = document.getElementById('navbar').offsetHeight || 48;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    
+                    // Aligns the top boundary of the slide element perfectly below the fixed header bar
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    };
 
-  document.addEventListener('DOMContentLoaded', () => {
+    // Navigation Menu Link Alignments
+    const aboutNavLink = document.querySelector('.nav-list li a[href="#about-me-nav"]');
+    scrollToSlide(aboutNavLink, '#about-me-nav');
 
-  document.getElementById('animate-from-left-text').classList.add('animate-from-left');
-  document.getElementById('hey-im-anty').classList.add('animate-from-right');
+    const projectsNavLink = document.getElementById('projects-nav-link');
+    scrollToSlide(projectsNavLink, '#projects-nav');
 
-  document.getElementById('projects-nav-link').addEventListener('click', () => {
-    const headerRect = document.querySelector('.projects-section-header').getBoundingClientRect();
-    window.scrollTo({ top: headerRect.top + headerRect.height + window.scrollY, behavior: 'smooth' });
-  });
+    const certsNavLink = document.getElementById('certs-nav-link');
+    scrollToSlide(certsNavLink, '#certifications-nav');
 
-  document.querySelector('.btn-show-up').addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    animate();
-  });
+    const contactNavLink = document.querySelector('.nav-list li a[href="#contact-nav"]');
+    scrollToSlide(contactNavLink, '#contact-nav');
 
-  function animate() {
-    const elements = [
-      { selector: '#hey-im-anty', classes: ['animate-from-right'] },
-      { selector: '#animate-from-left-text', classes: ['animate-from-left'] }
-    ];
 
-    elements.forEach((element) => {
-      document.querySelector(element.selector).classList.remove(...element.classes);
-      setTimeout(() => document.querySelector(element.selector).classList.add(...element.classes), 100);
-    });
-  }
+    // Back to Top Interactive Control
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
-  // Particle animation
-  const container = document.querySelector('#container-box');
+    // Interactive Particle Layer Generator (Anime.js Matrix)
+    const containerBox = document.getElementById('container-box');
+    if (containerBox) {
+        const particleCount = 40;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            containerBox.appendChild(particle);
+        }
 
-  function addAnimation() {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    container.appendChild(particle);
-  
-    const screenWidth = window.innerWidth * 0.9;
-    const screenHeight = window.innerHeight * 0.9;
-    const centerX = screenWidth / 2;
-    const centerY = screenHeight / 2;
-  
-    const randomX = Math.random() * screenWidth;
-    const randomY = Math.random() * screenHeight;
-  
-    anime({
-      targets: particle,
-      translateX: randomX - centerX,
-      translateY: randomY - centerY,
-      scale: [
-        { value: 0, duration: 2000 }, // Increased duration
-        { value: 0, duration: 1200, delay: 800 } // Increased duration and delay
-      ],
-      easing: 'easeOutSine',
-      loop: true,
-      delay: anime.random(0, 4000) // Increased delay range
-    });
-  }
-  
-  for (let i = 0; i < 450; i++) addAnimation(); // Increase the amount of particles
-
-  if (container) {
-    container.appendChild(particle);
-  } else {
-    console.error("Container element not found");
-  }
-
+        anime({
+            targets: '.particle',
+            translateX: () => anime.random(-window.innerWidth / 2, window.innerWidth / 2),
+            translateY: () => anime.random(-window.innerHeight / 2, window.innerHeight / 2),
+            scale: () => anime.random(1, 4),
+            opacity: {
+                value: [0, 0.8, 0],
+                duration: () => anime.random(2000, 5000),
+                easing: 'linear'
+            },
+            duration: () => anime.random(3000, 6000),
+            delay: () => anime.random(0, 2000),
+            loop: true,
+            direction: 'alternate',
+            easing: 'easeInOutQuad'
+        });
+    }
 });

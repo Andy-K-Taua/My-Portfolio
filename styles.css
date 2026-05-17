@@ -1,75 +1,49 @@
-/* Personal-Portfolio/styles.css */
-
 :root {
   --main-white: #f0f0f0;
   --main-red: #be3144;
   --main-blue: #b1bbd5;
   --main-gray: #303841;
   --main-black: #000000;
+  --accent-orange: #FF9B2F;
   --nav-height: 48px;
 }
 
-/* Base reset */
+/* ======================================= Base Resets */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* ===================================  box-sizing and font sizing */
-*,
 *::before,
 *::after {
   box-sizing: inherit;
 }
 
 html {
-  box-sizing: border-box;
-
-  /* Set font size for easy rem calculations
-     * default document font size = 16px, 1rem = 16px, 100% = 16px
-     * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
-    */
   font-size: 62.5%;
+  /* 1rem = 10px */
   scroll-behavior: smooth;
 }
 
-/* A few media query to set some font sizes at different screen sizes.
-   * This helps automate a bit of responsiveness.
-   * The trick is to use the rem unit for size values, margin and padding.
-   * Because rem is relative to the document font size
-   * when we scale up or down the font size on the document
-   * it will affect all properties using rem units for the values.
-  */
-
-/* I am using the em unit for breakpoints
-   * The calculation is the following
-   * screen size divided by browser base font size
-   * As an example: a breakpoint at 980px
-   * 980px / 16px = 61.25em
-  */
-
-/* 1200px / 16px = 75em */
+/* Responsive Font Scaling */
 @media (max-width: 75em) {
   html {
     font-size: 60%;
   }
 }
 
-/* 980px / 16px = 61.25em */
 @media (max-width: 61.25em) {
   html {
     font-size: 58%;
   }
 }
 
-/* 460px / 16px = 28.75em */
 @media (max-width: 28.75em) {
   html {
     font-size: 55%;
   }
 }
-
-/* ======================================  Base styles */
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -77,63 +51,66 @@ body {
   font-weight: 400;
   line-height: 1.4;
   color: var(--main-white);
+  background-color: var(--main-black);
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
   text-align: center;
 }
 
 h1 {
   font-size: 6rem;
+  font-weight: 700;
 }
 
 h2 {
   font-size: 4.2rem;
-  color: #000000;
+  font-weight: 700;
+  margin-bottom: 2rem;
 }
 
 ul {
   list-style: none;
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 a {
   text-decoration: none;
   color: var(--main-white);
   display: inline-block;
-  padding: 0;
-  border: none;
-  margin: 0;
 }
 
-img {
-  display: block;
-  width: 100%;
+.disabled-link {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .shadows-into-light-regular {
   font-family: "Shadows Into Light", cursive;
   font-weight: 400;
-  font-style: normal;
-  font-style: italic;
 }
 
-/*============================================   nav */
-
+/* ======================================= Global Navigation Bar */
 .nav {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: #878fa0;
-  box-shadow: #1f1f1f82;
-  z-index: 10;
-  align-items: center;
   height: var(--nav-height);
+  background: rgba(135, 143, 160, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .nav-list {
@@ -141,112 +118,110 @@ img {
   margin-right: 2rem;
 }
 
-@media (max-width: 28.75em) {
-  .nav {
-    justify-content: center;
-  }
-
-  .nav-list {
-    margin: 0 1rem;
-  }
-}
-
 .nav-list a {
-  display: block;
   font-size: 2.2rem;
-  padding: calc((var(--nav-height) - 2.2rem) / 2) 2rem;
+  padding: 0 2rem;
+  line-height: var(--nav-height);
+  transition: background-color 0.2s ease;
 }
 
 .nav-list a:hover {
-  background-color: #ffffff24;
-  height: var(--nav-height);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* =======================================  About Me Section */
+@media (max-width: 38rem) {
+  .nav {
+    justify-content: center;
+    height: auto;
+    padding: 0.5rem 0;
+  }
 
-.about-me {
+  .nav-list {
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-list a {
+    font-size: 1.6rem;
+    padding: 0 0.8rem;
+    line-height: 3.5rem;
+  }
+}
+
+/* ======================================= Shared Structure for Fullscreen Slides */
+.about-me,
+.projects-section,
+.certifications-section,
+.contact-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
-  background-color: #000;
-  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+  min-height: 100vh;
+  padding: calc(var(--nav-height) + 4rem) 2rem 4rem 2rem;
+  position: relative;
   overflow: hidden;
 }
 
-.about-me>p {
-  font-size: 3rem;
-  font-weight: 200;
-  font-style: italic;
-  color: #FF9B2F;
-  padding-left: 250px;
+/* ======================================= Slide 1: About Me (Hero) */
+.about-me {
+  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+}
+
+.about-me-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  z-index: 2;
 }
 
 #hey-im-anty {
-  margin-right: 140px;
-}
-
-.animate-from-right {
-  animation: animate-from-right 2s ease-out;
-  position: relative;
-}
-
-.animate-from-left {
-  animation: animate-from-left 3s ease-out;
-  transition: all 3s ease-out;
+  font-size: 6rem;
   text-align: left;
-  position: relative;
+  align-self: flex-start;
+  margin-bottom: 1rem;
 }
 
-@keyframes animate-from-right {
-  0% {
-    transform: translateX(100vw);
-    opacity: 0;
+.about-me-content>p {
+  font-size: 3rem;
+  font-style: italic;
+  color: var(--accent-orange);
+  text-align: right;
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
+@media (max-width: 48em) {
+  #hey-im-anty {
+    font-size: 4rem;
+    align-self: center;
+    text-align: center;
   }
 
-  100% {
-    transform: translateX(0);
-    opacity: 1;
+  .about-me-content>p {
+    font-size: 2.2rem;
+    align-self: center;
+    text-align: center;
   }
 }
 
-@keyframes animate-from-left {
-  0% {
-    transform: translateX(-100vw);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* =======================================  My Projects Section */
-
+/* ======================================= Slide 2: Portfolio & Projects */
 .projects-section {
-  text-align: center;
-  padding: 10rem 2rem;
-  padding-bottom: 80rem;
-  background: var(--main-blue);
-  overflow-y: auto;
+  background-image: linear-gradient(135deg, #a3b1c6 0%, var(--main-blue) 100%);
+  padding-top: calc(var(--nav-height) + 1rem) !important; /* Forces the section contents to start right under the nav bar */
+  justify-content: flex-start !important; /* Changes alignment from center to top */
 }
 
 .projects-section-header {
-  max-width: 280px;
-  margin: 0 auto 6rem auto;
+  max-width: 400px;
+  margin-top: 0 !important;       /* Forces the title to have zero top margin */
+  margin-bottom: 2rem !important;  /* Controls space between title and project cards */
+  padding-bottom: 1rem;
   border-bottom: 0.2rem solid var(--main-black);
-}
-
-@media (max-width: 28.75em) {
-  .projects-section-header {
-    font-size: 4rem;
-  }
 }
 
 .projects-grid {
@@ -254,258 +229,241 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-gap: 2rem;
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-bottom: 15rem;
+  max-width: 1280px; 
+  max-height: 75vh; 
+  overflow-y: auto;
+  padding: 1rem;
+  justify-items: center;
 }
 
-@media (max-width: 30.625em) {
-  .projects-section {
-    padding: 6rem 1rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+/* Custom Scrollbar for Projects Grid */
+.projects-grid::-webkit-scrollbar {
+  width: 8px;
+}
+.projects-grid::-webkit-scrollbar-thumb {
+  background: var(--main-gray);
+  border-radius: 4px;
 }
 
+/* Cards Animation Design */
 .container {
-  height: 300px;
-  width: 200px;
-  perspective: 800px;
+  height: 250px; /* Adjusted height proportionally to match the narrower card width */
+  width: 170px;  /* Narrowed width to align 5 cards comfortably on screen rows */
+  perspective: 1000px;
 }
 
 .card {
   height: 100%;
   width: 100%;
   position: relative;
-  transition: transform 1500ms;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
 }
 
-.container:hover>.card {
-  cursor: pointer;
-  transform: rotateY(180deg) rotateZ(180deg);
+.container:hover .card {
+  transform: rotateY(180deg);
 }
 
 .front,
 .back {
-  height: 300px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
   border-radius: 2rem;
-  box-shadow: 0 0 8px 4px rgba(50, 50, 50, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   position: absolute;
   backface-visibility: hidden;
 }
 
-.back {
-  background-color: #3a3a3a;
-  transform: rotateY(180deg) rotateZ(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
+.front img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
 }
 
-img {
-  display: block;
-  height: 300px;
-  width: 200px;
-  border-radius: 2rem;
+.back {
+  background-color: #2a2a2a;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+}
+
+.back a {
+  text-align: center;
+}
+
+.back h2 {
+  color: var(--accent-orange);
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.back p {
+  font-size: 1.2rem;
+  color: var(--main-white);
 }
 
 .card-text {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  background-color: rgba(0, 0, 0, 0.546);
-  padding: 20px;
-  border-radius: 18px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  padding: 1.5rem 1rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .card-text h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #fff;
 }
 
-.card-text p {
-  font-size: 18px;
-  margin-bottom: 20px;
+/* ======================================= Slide 3: Certifications */
+.certifications-section {
+  background-image: linear-gradient(180deg, #1e242b 0%, #111518 100%); 
+  padding-top: calc(var(--nav-height) + 1rem) !important; /* Forces the section contents to start right under the nav bar */
+  justify-content: flex-start !important; /* Shifts vertical alignment from center to top */
 }
-
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  height: 100%;
-  width: 100%;
-}
-
-/* ====================================    Certification Section */
 
 .certifications-header {
-  max-width: 280px;
-  margin: 0 auto 6rem auto;
-  border-bottom: 0.2rem solid var(--main-black);
+  max-width: 400px;
+  margin-top: 0 !important;       /* Removes any unwanted top margins */
+  margin-bottom: 4rem !important;  /* Keeps healthy breathing room above your certification cards */
+  padding-bottom: 1rem;
+  border-bottom: 0.2rem solid var(--main-white);
+  color: var(--main-white);
 }
 
 .certifications-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 4rem;
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-bottom: 15rem;
+  max-width: 1100px;
+  justify-items: center;
 }
 
 .certification-card {
-  background-color: #3a3a3a;
+  background-color: #2a2a2a;
   border-radius: 2rem;
-  box-shadow: 0 0 8px 4px rgba(50, 50, 50, 0.25);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  width: 100%;
+  max-width: 320px;
+  transition: transform 0.3s ease;
+}
+
+.certification-card:hover {
+  transform: translateY(-8px);
 }
 
 .certification-card img {
-  width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
   border-radius: 1rem;
 }
 
 .certification-text {
-  margin-top: 20px;
+  margin-top: 1.5rem;
   text-align: center;
 }
 
 .certification-text h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
   color: var(--main-white);
 }
 
 .certification-text p {
-  font-size: 18px;
-  margin-bottom: 20px;
-  color: var(--main-white);
+  font-size: 1.4rem;
+  color: #b3b3b3;
 }
 
-/* ====================================    Contact Me Section */
-
+/* ======================================= Slide 4: Contact Section */
 .contact-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  height: 80vh;
-  padding: 0 2rem;
-  background: var(--main-gray);
+  background-image: linear-gradient(135deg, var(--main-gray) 0%, #1f242a 100%);
 }
 
-.contact-section-header>h2 {
-  font-size: 6rem;
-}
-
-@media (max-width: 28.75em) {
-  .contact-section-header>h2 {
-    font-size: 4rem;
-  }
-}
-
-.contact-section-header>p {
-  font-style: italic;
+.contact-section h2 {
+  color: var(--main-white);
+  font-size: 4.2rem;
+  margin-bottom: 4rem;
 }
 
 .contact-links {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 980px;
-  margin-top: 4rem;
+  gap: 4rem;
   flex-wrap: wrap;
+  margin-bottom: 6rem;
 }
 
 .contact-details {
-  font-size: 2.4rem;
-  text-shadow: 2px 2px 1px #1f1f1f;
-  transition: transform 0.3s ease-out;
+  font-size: 2.6rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .contact-details:hover {
-  transform: translateY(8px);
+  transform: translateY(-5px);
+  color: var(--accent-orange);
 }
 
 .space-bar {
-  padding-top: 140px;
+  margin-top: 2rem;
 }
 
 .btn {
-  display: inline-block;
-  padding: 1rem 2rem;
+  padding: 12rem 3rem;
+  padding: 1.2rem 3rem;
   border-radius: 8px;
+  border: none;
+  font-family: inherit;
 }
 
 .btn-show-up {
-  font-size: 2rem;
-  background: #FF9B2F;
+  font-size: 1.8rem;
+  background: var(--accent-orange);
+  color: var(--main-black);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .btn-show-up:hover {
-  cursor: pointer;
-  background: var(--main-gray);
+  background: var(--main-white);
+  transform: scale(1.05);
 }
 
-
-/* =========================================   Footer */
-
+/* ======================================= Global Footer */
 footer {
-  font-weight: 300;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 2rem;
-  background: var(--main-gray);
-  border-top: 4px solid var(--main-blue);
+  text-align: center;
+  padding: 2.5rem;
+  background: var(--main-black);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.4rem;
+  width: 100%;
 }
 
-footer>p {
-  margin: 2rem;
+/* Interactive Background Particle Layers */
+.container-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
-
-footer i {
-  vertical-align: middle;
-}
-
-@media (max-width: 28.75em) {
-  footer {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-
-/* ======================================  Particles */
 
 .particle {
   position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #FF9B2F /* #00FF00 (This was the original colour) */;
-  top: 50vh;
-  left: 50vw;
-  border-radius: 3px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-orange);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
