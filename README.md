@@ -33,3 +33,6 @@ Personal-Portfolio/
 ## Live Demo
 
 <a href="https://andy-k-taua.github.io/My-Portfolio/" target="_blank" rel="noopener noreferrer">View Project Here</a>
+
+<a href="https://andy-k-taua.github.io/My-Portfolio" target="_blank">View Project Here</a>
+
