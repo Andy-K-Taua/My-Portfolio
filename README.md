@@ -1,3 +1,7 @@
+This `README.md` is structured to highlight your skills, project architecture, and how to set up your portfolio locally.
+
+---
+
 # Personal Portfolio
 
 Welcome to my personal portfolio! This project serves as a showcase of my journey as an aspiring Tech Developer and Web Enthusiast. It highlights my MERN stack capabilities, front-end design skills, and various projects ranging from simple HTML forms to complex, database-driven applications.
@@ -7,7 +11,7 @@ Welcome to my personal portfolio! This project serves as a showcase of my journe
 This portfolio is a single-page application (SPA) featuring:
 
 * **Smooth Navigation:** Custom scrolling logic to snap between sections.
-* **Interactive Design:** Dynamic particle animations powered by [Anime.js]
+* **Interactive Design:** Dynamic particle animations.
 * **Responsive Layout:** Fully optimized for different screen sizes using CSS Grid and Flexbox.
 * **Portfolio Showcase:** A card-based project grid that reveals details on hover.
 
@@ -18,6 +22,9 @@ This portfolio is a single-page application (SPA) featuring:
 * **Deployment:** Designed for cloud platforms (Render/GitHub Pages).
 
 ## 📂 Project Structure
+
+## Live Demo
+[View Project Here](https://andy-k-taua.github.io/My-Portfolio/)
 
 ```text
 Personal-Portfolio/
@@ -30,20 +37,4 @@ Personal-Portfolio/
 └── README.md
 
 ```
-## Live Demo
-[View Project Here](https://andy-k-taua.github.io/My-Portfolio/)
-
-```
-
-*The server will automatically open your browser to `http://localhost:3000`.*
-
-## 📬 Get In Touch
-
-* **GitHub:** [Andy-K-Taua](https://github.com/Andy-K-Taua)
-
----
-
-*Built with passion by Andy Kalasini-Taua © 2026*
-
----
 
