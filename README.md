@@ -19,11 +19,6 @@ This portfolio is a single-page application (SPA) featuring:
 
 ## 📂 Project Structure
 
-## Live Demo
-
-<a href="https://andy-k-taua.github.io/My-Portfolio/" target="_blank" rel="noopener noreferrer">View Project Here</a>
-
-
 ```text
 Personal-Portfolio/
 ├── images/          # Assets and project screenshots
@@ -35,4 +30,6 @@ Personal-Portfolio/
 └── README.md
 
 ```
+## Live Demo
 
+<a href="https://andy-k-taua.github.io/My-Portfolio/" target="_blank" rel="noopener noreferrer">View Project Here</a>
