@@ -1,7 +1,3 @@
-This `README.md` is structured to highlight your skills, project architecture, and how to set up your portfolio locally.
-
----
-
 # Personal Portfolio
 
 Welcome to my personal portfolio! This project serves as a showcase of my journey as an aspiring Tech Developer and Web Enthusiast. It highlights my MERN stack capabilities, front-end design skills, and various projects ranging from simple HTML forms to complex, database-driven applications.
@@ -24,7 +20,9 @@ This portfolio is a single-page application (SPA) featuring:
 ## 📂 Project Structure
 
 ## Live Demo
-[View Project Here](https://andy-k-taua.github.io/My-Portfolio/)
+
+<a href="https://andy-k-taua.github.io/My-Portfolio/" target="_blank" rel="noopener noreferrer">View Project Here</a>
+
 
 ```text
 Personal-Portfolio/
