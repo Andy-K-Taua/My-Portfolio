@@ -1,12 +1,13 @@
-# Ignore dependency directories (keeps your commits lightweight)
 node_modules/
 
-# Ignore local environment variable secrets
 .env
 
-# Ignore operating system system files
 .DS_Store
 Thumbs.db
 
-# Ignore local python script snapshots
-snapshot.py
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
